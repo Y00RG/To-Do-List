@@ -10,6 +10,7 @@ def to_do_list(request):
         task = request.POST.get('task')
         if task:
             To_Do_List.objects.create(task=task)
+        return redirect('to_do_list')  # Redirect after POST
     
     tasks = To_Do_List.objects.all()
     context = {"tasks": tasks}
